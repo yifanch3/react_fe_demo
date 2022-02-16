@@ -1,14 +1,14 @@
 import React, { useCallback, useState } from 'react';
 import cls from 'classnames';
 import {
-    VscGlobe,
     VscFolderActive,
     VscGear,
     VscDebug,
     VscDeviceCamera,
     VscHistory,
     VscDesktopDownload,
-    VscCircuitBoard,
+    VscCombine,
+    VscRocket,
 } from "react-icons/vsc";
 import styles from './sidebar.module.css';
 
@@ -16,12 +16,12 @@ export const SideBar = () => {
     return (
         <div className={styles.container}>
             <div className={styles.optionContainer}>
-                <VscGlobe />
+                <VscRocket />
                 <div className={styles.optionText}>{'MoonRanger'}</div>
             </div>
             <div className={styles.divideLine} />
             <div className={styles.optionContainer}>
-                <VscCircuitBoard />
+                <VscCombine />
                 <div className={styles.optionText}>{'Component'}</div>
             </div>
             <div className={styles.optionContainer}>

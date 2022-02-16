@@ -1,0 +1,15 @@
+.localContainerStyle {
+    background-color: red!important;
+    color: #f1f3f4!important;
+}
+
+.localContainerStyle:hover {
+    color: red!important;
+    background-color: #f1f3f4!important;
+}
+
+.localContainerStyle:active {
+    color: powderblue!important;
+    background-color: crimson!important;
+}
+
