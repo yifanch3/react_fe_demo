@@ -7,8 +7,6 @@ export const operations = createSlice({
   },
   reducers: {
     setOperationInProgress: (state, action) => {
-        console.log('trigger setOperationInProgress');
-        console.log(action);
         state = {
           ...state,
           operationsInProgress: {
@@ -19,8 +17,6 @@ export const operations = createSlice({
         return state;
     },
     cancelOperationInProgress: (state, action) => {
-      console.log('trigger cancelOperationInProgress');
-      console.log(action);
       state = {
         ...state,
         operationsInProgress: {
