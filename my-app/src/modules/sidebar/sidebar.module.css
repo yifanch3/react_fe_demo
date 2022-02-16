@@ -1,3 +1,82 @@
 .container {
-    color: red
+    border: 0;
+    border-right: 3px solid #f1f3f4;
+    position: fixed;
+    display: block;
+    height: 100%;
+    width: 80px;
+    background-color: #1e1e1e;
+    color: #f1f3f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    /* define width animation */
+    transition-property: width;
+    transition-duration: 0.5s;
+    transition-delay: 0s;
+}
+
+.container:hover {
+    width: 200px;
+}
+
+.container:hover .optionContainer .optionText {
+    /* opacity: 1.0; */
+    width: 140px;
+}
+
+.containerHovered {
+    width: 200px;
+    transition-property: width;
+    transition-duration: 1s;
+    transition-delay: 0.5s;
+}
+
+.headIcon {
+    font-size: 40px;
+}
+
+.optionContainer {
+    font-size: 40px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;    
+    overflow: hidden;
+    padding: 0 10px 0 10px;
+
+    cursor: pointer;
+}
+
+.optionContainer svg {
+    width: 1em;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.optionText {
+    width: 0px;
+
+    font-size: 20px;
+
+    overflow: hidden;
+    transition-property: width;
+    transition-duration: 0.5s;
+    transition-delay: 0s;
+
+}
+
+.container .optionContainer {
+    margin-top: 20px;
+}
+
+.divideLine {
+    margin-top: 20px;
+    background-color: #f1f3f4;
+    flex: 0 0 3px;
+    align-self: stretch;
 }
