@@ -1,5 +1,5 @@
 import { from } from 'rxjs';
-import { mapTo, mergeMap, tap } from 'rxjs/operators';
+import { mapTo, mergeMap, tap, map } from 'rxjs/operators';
 import { ofType } from 'redux-observable'
 import { triggerStopAll, setOperationInProgress, cancelOperationInProgress } from '../actions';
 
@@ -17,7 +17,10 @@ export const setStopAllInProgressEpic = (action$) => (
   action$.pipe(
     ofType(triggerStopAll.toString()),
     // tap((actionObject) => { console.log('trigger A', actionObject); }),
-    mapTo(setOperationInProgress({ operationName: triggerStopAll.toString() }))
+    map((actionObject) => ({
+      ...setOperationInProgress({ operationName: triggerStopAll.toString() }),
+      traceId: actionObject.traceId,
+    }))
   )
 );
 
@@ -30,7 +33,10 @@ export const sendStopAllCommandToRemoteEpic = (action$) => (
       from(delay(5000))
       /* MOCK Finish, simulate some sending */
       .pipe(
-        mapTo(cancelOperationInProgress({ operationName: triggerStopAll.toString() })),
+        mapTo({
+          ...cancelOperationInProgress({ operationName: triggerStopAll.toString() }),
+          traceId: action.traceId,
+        }),
         // tap((actionObject) => { console.log('trigger C', actionObject); }),
       )
     ))
