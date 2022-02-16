@@ -1,0 +1,1 @@
+export { switchModule } from './reducers/current_module';
