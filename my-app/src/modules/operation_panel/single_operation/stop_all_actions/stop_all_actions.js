@@ -10,10 +10,18 @@ import { triggerStopAll } from '../../../../store/reducers/operations';
 import { useDispatch, useSelector } from 'react-redux';
 
 
+const useCustomizedDispatch = () => {
+    const defaultDispatch = useDispatch();
+    return (actionObject) => {
+        const traceId = `${Math.random()}`;
+        defaultDispatch({ ...(actionObject || {}), traceId });
+    };
+};
+
 export const StopAllActions = () => {
-    const dispatch = useDispatch();
     const isStoping = useSelector(state => !!state.operations.operationsInProgress[triggerStopAll.toString()]);
     const [isMouseOver, setIsMouseOver] = useState(false);
+    const dispatch = useCustomizedDispatch();
     return (
         <div
             className={cls(styles.container, localStyles.localContainerStyle)}
