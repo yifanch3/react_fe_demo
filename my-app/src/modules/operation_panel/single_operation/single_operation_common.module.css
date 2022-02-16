@@ -11,6 +11,28 @@
     align-items: center;
     
     cursor: pointer;
+
+    font-size: 16px;
+    color: #f1f3f4;
+    background-color: inherit;
+
+    transition-property: color;
+    transition-duration: 0.3s;
+    transition-delay: 0s;
+
+    transition-property: background-color;
+    transition-duration: 0.3s;
+    transition-delay: 0s;
+}
+
+.container:hover {
+    color: inherit;
+    background-color: #f1f3f4;
+}
+
+.container:active {
+    color: #f1f3f4;
+    background-color: #377dc9;
 }
 
 .statusIconContainer {
@@ -23,12 +45,11 @@
     justify-content: center;
     align-items: center;
 
-    background-color: red;
+    /* background-color: red; */
 
     margin-right: 5px;
 }
 
 .operationName {
-    font-size: 16px;
-    color: #f1f3f4;
+
 }
