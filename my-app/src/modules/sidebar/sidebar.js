@@ -1,5 +1,4 @@
-import React, { useCallback, useState } from 'react';
-import cls from 'classnames';
+import React from 'react';
 import {
     VscFolderActive,
     VscGear,
