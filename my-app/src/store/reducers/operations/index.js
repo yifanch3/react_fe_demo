@@ -7,10 +7,28 @@ export const operations = createSlice({
   },
   reducers: {
     setOperationInProgress: (state, action) => {
-        state.operationsInProgress[action.payload.operationName] = true;
+        console.log('trigger setOperationInProgress');
+        console.log(action);
+        state = {
+          ...state,
+          operationsInProgress: {
+            ...state.operationsInProgress,
+            [action.payload.operationName]: true,
+          },
+        };
+        return state;
     },
     cancelOperationInProgress: (state, action) => {
-        state.operationsInProgress[action.payload.operationName] = false;
+      console.log('trigger cancelOperationInProgress');
+      console.log(action);
+      state = {
+        ...state,
+        operationsInProgress: {
+          ...state.operationsInProgress,
+          [action.payload.operationName]: false,
+        },
+      };
+      return state;
     },
   },
 });

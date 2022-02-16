@@ -18,16 +18,25 @@ const epicMiddleware = createEpicMiddleware({
   dependencies: {},
 });
 
-// config the epic middleware to run our epic
-epicMiddleware.run(rootEpic);
+const createAppStore = () => {
 
-export default configureStore({
-  // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(epicMiddleware),
-  reducer: {
-    currentModule,
-    operations,
-  },
-  enhancers: [
-    applyMiddleware(epicMiddleware),
-  ],
-})
+  const finalStore = configureStore({
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(
+      epicMiddleware
+      // applyMiddleware(epicMiddleware)
+    ),
+    reducer: {
+      currentModule,
+      operations,
+    },
+  });
+
+  // config the epic middleware to run our epic
+  epicMiddleware.run(rootEpic);
+
+
+  return finalStore;
+};
+
+
+export default createAppStore();

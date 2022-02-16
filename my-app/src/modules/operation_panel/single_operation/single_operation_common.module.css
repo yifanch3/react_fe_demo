@@ -49,3 +49,8 @@
 
     margin-right: 5px;
 }
+
+.statusIconContainer svg {
+    height: 40px;
+    width: 40px;
+}

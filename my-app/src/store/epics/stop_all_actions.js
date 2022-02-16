@@ -30,7 +30,8 @@ export const sendStopAllCommandToRemoteEpic = (action$) => (
       from(delay(5000))
       /* MOCK Finish, simulate some sending */
       .pipe(
-        mapTo(cancelOperationInProgress({ operationName: triggerStopAll.toString() }))
+        mapTo(cancelOperationInProgress({ operationName: triggerStopAll.toString() })),
+        tap(() => { console.log('trigger C'); }),
       )
     ))
   )
