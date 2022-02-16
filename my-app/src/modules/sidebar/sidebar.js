@@ -14,13 +14,7 @@ import styles from './sidebar.module.css';
 
 export const SideBar = () => {
     return (
-        <div
-            className={
-                cls({
-                    [styles.container]: true,
-                })
-            }
-        >
+        <div className={styles.container}>
             <div className={styles.optionContainer}>
                 <VscGlobe />
                 <div className={styles.optionText}>{'MoonRanger'}</div>
