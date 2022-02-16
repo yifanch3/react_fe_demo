@@ -15,9 +15,17 @@ import styles from './sidebar.module.css';
 
 import { switchModule } from '../../store/actions';
 
+const useCustomizedDispatch = () => {
+    const defaultDispatch = useDispatch();
+    return (actionObject) => {
+        const traceId = `${Math.random()}`;
+        defaultDispatch({ ...(actionObject || {}), traceId });
+    };
+};
+
 export const SideBar = () => {
 
-    const dispatch = useDispatch();
+    const dispatch = useCustomizedDispatch();
     
     return (
         <div className={styles.container}>

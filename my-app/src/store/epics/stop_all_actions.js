@@ -16,7 +16,6 @@ const delay = (time) => new Promise((resolve) => {
 export const setStopAllInProgressEpic = (action$) => (
   action$.pipe(
     ofType(triggerStopAll.toString()),
-    // tap((actionObject) => { console.log('trigger A', actionObject); }),
     map((actionObject) => ({
       ...setOperationInProgress({ operationName: triggerStopAll.toString() }),
       traceId: actionObject.traceId,
@@ -27,7 +26,6 @@ export const setStopAllInProgressEpic = (action$) => (
 export const sendStopAllCommandToRemoteEpic = (action$) => (
   action$.pipe(
     ofType(triggerStopAll.toString()),
-    // tap((actionObject) => { console.log('trigger B', actionObject); }),
     mergeMap(action => (
       /* MOCK Start, simulate some sending */
       from(delay(5000))
@@ -37,7 +35,6 @@ export const sendStopAllCommandToRemoteEpic = (action$) => (
           ...cancelOperationInProgress({ operationName: triggerStopAll.toString() }),
           traceId: action.traceId,
         }),
-        // tap((actionObject) => { console.log('trigger C', actionObject); }),
       )
     ))
   )
