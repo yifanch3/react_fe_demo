@@ -1,6 +1,8 @@
 import { applyMiddleware, configureStore } from '@reduxjs/toolkit';
 
-import { combineEpics, createEpicMiddleware } from 'redux-observable'
+import { combineEpics, createEpicMiddleware } from 'redux-observable';
+
+import { map, tap, mergeMap } from 'rxjs/operators';
 
 import currentModule from './reducers/current_module';
 import operations from './reducers/operations';
@@ -9,11 +11,10 @@ import { loggerMiddleware } from './middleware/logger';
 
 import { setStopAllInProgressEpic, sendStopAllCommandToRemoteEpic } from './epics/stop_all_actions';
 
-
 const rootEpic = combineEpics(
   sendStopAllCommandToRemoteEpic,
   setStopAllInProgressEpic,
-)
+);
 
 // redux middleware for the epic, create it
 const epicMiddleware = createEpicMiddleware({
