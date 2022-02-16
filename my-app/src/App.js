@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import { SideBar } from './modules/sidebar/sidebar';
+import { Maps } from './modules/maps/maps';
 import styles from './app.module.css';
 import './App.css';
 
@@ -8,7 +9,7 @@ function App() {
     <div className={styles.container}>
       <SideBar />
       <div className={styles.contents}>
-          {'fjhskfas'}
+          <Maps />
       </div>
     </div>
   );

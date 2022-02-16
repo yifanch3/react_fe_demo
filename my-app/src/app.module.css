@@ -9,6 +9,14 @@
 }
 
 .contents {
-    background-color: green;
+    background-color: #1e1e1e;
     flex: 1;
+    
+    padding-left: 90px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+
 }
