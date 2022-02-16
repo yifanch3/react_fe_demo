@@ -1,6 +1,6 @@
 .singleMapFlexBox {
     box-sizing: border-box;
-    flex: 0 0 600px;
+    flex: 0 0 50%;
     height: 300px;
     
     padding: 10px;
